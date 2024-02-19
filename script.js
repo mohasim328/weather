@@ -1,7 +1,7 @@
 const apiKey = "538920364b97a5abfbb108c8d304a689";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 const searchBox = document.querySelector(".search input");
-const searchBtn = document.querySelector(".search button");
+const searchBtn = document.querySelector(".searchbtn");
 const weathericon = document.querySelector(".weather-icon");
 
 async function checkWeather(city) {
@@ -26,12 +26,24 @@ async function checkWeather(city) {
     }
 }
 
-checkWeather('bareilly');
 searchBtn.addEventListener("click", () => {
     checkWeather(searchBox.value);
+    console.log("clicked");
 })
 
+  searchBox.addEventListener("keyup", function (event) {
+
+    if(event.key == "Enter"){
+        checkWeather(searchBox.value);
+        console.log("key up");
+    }
+    
+   
+
+  });
 
 
+
+  checkWeather('bareilly');
 
  
